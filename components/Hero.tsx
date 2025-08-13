@@ -67,12 +67,33 @@ export default function Hero() {
             3D, editing, UI/UX, strategy, and code — one studio.
           </motion.p>
 
+          {/* Value Props */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-5xl mx-auto"
           >
+            <div className="text-center">
+              <h3 className="text-lg font-semibold text-fg mb-2">Senior-level craft</h3>
+              <p className="text-sm text-gray-400">We ship crisp visuals and tight UX.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-lg font-semibold text-fg mb-2">Speed without chaos</h3>
+              <p className="text-sm text-gray-400">Clear scopes, weekly drops, no mystery.</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-lg font-semibold text-fg mb-2">Strategy before pixels</h3>
+              <p className="text-sm text-gray-400">We build what moves your metrics.</p>
+            </div>
+          </motion.div>
+
+                      <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            >
             <Button href="/contact" variant="primary">
               Start Your Project
               <motion.div

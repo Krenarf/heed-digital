@@ -59,10 +59,10 @@ export default function SelectedWork() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-fg">
-            Featured <span className="gradient-text">Work</span>
+            Recent <span className="gradient-text">Work</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Explore our latest projects across 3D animation, video production, design, and development.
+            From napkin to shipped — a few highlights.
           </p>
         </motion.div>
 
@@ -135,6 +135,49 @@ export default function SelectedWork() {
             </motion.div>
           ))}
         </div>
+
+        {/* Process Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mt-20"
+        >
+          <h3 className="text-3xl font-bold mb-8 text-fg">
+            How we <span className="gradient-text">work</span>
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-brand rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-black font-bold text-lg">1</span>
+              </div>
+              <h4 className="font-semibold text-fg mb-2">Discover</h4>
+              <p className="text-sm text-gray-400">Goals, audience, success metrics</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-brand rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-black font-bold text-lg">2</span>
+              </div>
+              <h4 className="font-semibold text-fg mb-2">Design</h4>
+              <p className="text-sm text-gray-400">Concepts, styleframes, wireframes</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-brand rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-black font-bold text-lg">3</span>
+              </div>
+              <h4 className="font-semibold text-fg mb-2">Build</h4>
+              <p className="text-sm text-gray-400">3D, edits, UI, code</p>
+            </div>
+            <div className="text-center">
+              <div className="w-12 h-12 bg-brand rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-black font-bold text-lg">4</span>
+              </div>
+              <h4 className="font-semibold text-fg mb-2">Scale</h4>
+              <p className="text-sm text-gray-400">Versions, analytics, A/B tests</p>
+            </div>
+          </div>
+        </motion.div>
 
         {/* CTA */}
         <motion.div

@@ -57,14 +57,24 @@ export default function Footer() {
               >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a
-                href="https://github.com/heeddigital"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-brandA hover:bg-brandA/10 transition-all duration-300"
-              >
-                <Github className="w-5 h-5" />
-              </a>
+                             <a
+                 href="https://github.com/heeddigital"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-brandA hover:bg-brandA/10 transition-all duration-300"
+               >
+                 <Github className="w-5 h-5" />
+               </a>
+             </div>
+
+             {/* Contact Info */}
+             <div className="mt-6">
+               <p className="text-gray-400 text-sm">
+                 <a href="mailto:info@heeddigital.co" className="hover:text-brandA transition-colors">
+                   info@heeddigital.co
+                 </a>
+               </p>
+             </div>
             </div>
           </div>
 

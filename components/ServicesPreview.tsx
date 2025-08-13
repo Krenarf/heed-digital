@@ -7,44 +7,44 @@ const services = [
   {
     icon: Box,
     title: '3D Animation & Modeling',
-    description: 'Bring your ideas to life with stunning 3D animations and visualizations.',
-    bullets: ['Character animation', 'Product renders', 'Motion graphics', 'Architectural viz'],
+    description: 'Signature 3D that stops the scroll.',
+    bullets: ['Character/product 3D', 'Styleframes', '10–30s loops', 'Promos', 'Exports for social'],
     slug: '3d-animation'
   },
   {
     icon: Video,
     title: 'Video Editing',
-    description: 'Professional video production and post-production for all platforms.',
-    bullets: ['Short-form content', 'Kinetic typography', 'Color grading', 'Motion graphics'],
+    description: 'Hooks, pacing, and polish.',
+    bullets: ['Shorts', 'Kinetic type', 'Captions/SRT', '3–5 variants', 'Thumbnail'],
     slug: 'video-editing'
   },
   {
     icon: Palette,
     title: 'UI/UX Design',
-    description: 'User-centered design solutions that create engaging digital experiences.',
-    bullets: ['User research', 'Wireframes', 'Prototypes', 'Design systems'],
+    description: 'Clean designs that convert.',
+    bullets: ['Landing pages', 'Onboarding', 'Design tokens', 'Component library'],
     slug: 'ui-ux'
   },
   {
     icon: PenTool,
     title: 'Content Writing',
-    description: 'Compelling copy that connects with your audience and drives action.',
-    bullets: ['Website copy', 'Social media', 'Email campaigns', 'SEO content'],
+    description: 'Words that carry the video.',
+    bullets: ['Hooks', 'Scripts', 'Captions', 'Case blurbs', 'Voice & tone'],
     slug: 'content-writing'
   },
   {
     icon: TrendingUp,
     title: 'Marketing Strategy',
-    description: 'Data-driven strategies that grow your brand and deliver results.',
-    bullets: ['Market research', 'Campaign planning', 'Performance tracking', 'ROI optimization'],
-    slug: 'marketing'
+    description: 'Clarity on what to make and why.',
+    bullets: ['Positioning', 'Content calendar', 'KPI dashboard', 'Creator collabs'],
+    slug: 'marketing-strategy'
   },
   {
     icon: Code,
-    title: 'Web Development',
-    description: 'Custom websites and applications built with modern technologies.',
-    bullets: ['Next.js apps', 'E-commerce', 'API integration', 'Performance optimization'],
-    slug: 'coding'
+    title: 'Code (Web Dev)',
+    description: 'Fast sites, real analytics, A/B tests.',
+    bullets: ['Next.js builds', 'CMS wiring', 'Analytics', 'Experiments'],
+    slug: 'code'
   }
 ]
 
@@ -60,10 +60,10 @@ export default function ServicesPreview() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-fg">
-            Our <span className="gradient-text">Services</span>
+            What we <span className="gradient-text">do</span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            We offer a complete range of creative and digital services to help your business stand out and succeed.
+            End-to-end support for content and product.
           </p>
         </motion.div>
 

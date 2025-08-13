@@ -46,7 +46,7 @@ export default function ProofRow() {
             The <span className="gradient-text">Numbers</span> Don't Lie
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Our track record speaks for itself. Here's what we've achieved for our clients.
+            +400M organic views · Edit → live &lt; 48h · US/EU coverage
           </p>
         </motion.div>
 
