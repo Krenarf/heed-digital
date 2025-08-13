@@ -1,12 +1,23 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 import { ChevronDown, Play } from 'lucide-react'
 import assets from '@/content/assets.json'
 
 export default function Hero() {
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+    const contactElement = document.getElementById('contact') as HTMLElement | null
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const scrollToAbout = () => {
+    const aboutElement = document.getElementById('about') as HTMLElement | null
+    if (aboutElement) {
+      aboutElement.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
@@ -106,7 +117,7 @@ export default function Hero() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="text-gray-400 hover:text-white transition-colors cursor-pointer"
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={scrollToAbout}
         >
           <ChevronDown className="w-6 h-6" />
         </motion.div>

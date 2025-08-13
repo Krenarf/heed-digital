@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Mail,
   Twitter,
@@ -17,12 +17,15 @@ export default function Footer() {
 
   const toggleCursor = () => {
     setCursorEnabled(!cursorEnabled)
+  }
+
+  useEffect(() => {
     // This would control the custom cursor visibility
-    const cursorElement = document.querySelector('.custom-cursor')
+    const cursorElement = document.querySelector('.custom-cursor') as HTMLElement | null
     if (cursorElement) {
       cursorElement.style.display = cursorEnabled ? 'none' : 'block'
     }
-  }
+  }, [cursorEnabled])
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })

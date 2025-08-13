@@ -64,6 +64,13 @@ const projects = [
 ]
 
 export default function Portfolio() {
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact') as HTMLElement | null
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="section-padding bg-dark-gray">
       <div className="container-custom">
@@ -171,7 +178,7 @@ export default function Portfolio() {
               </button>
               <button 
                 className="btn-secondary"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={scrollToContact}
                 data-cursor="hover"
               >
                 Start Your Project

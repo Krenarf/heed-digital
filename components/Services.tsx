@@ -57,6 +57,13 @@ const services = [
 ]
 
 export default function Services() {
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact') as HTMLElement | null
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="section-padding bg-dark">
       <div className="container-custom">
@@ -139,7 +146,7 @@ export default function Services() {
             </p>
             <button 
               className="btn-primary"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={scrollToContact}
               data-cursor="hover"
             >
               Get Started

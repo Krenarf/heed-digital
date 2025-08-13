@@ -40,6 +40,13 @@ const reasons = [
 ]
 
 export default function WhyWorkWithUs() {
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact') as HTMLElement | null
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="section-padding bg-dark">
       <div className="container-custom">
@@ -120,7 +127,7 @@ export default function WhyWorkWithUs() {
             </p>
             <button 
               className="btn-primary"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={scrollToContact}
               data-cursor="hover"
             >
               Let's Talk
