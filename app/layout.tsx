@@ -2,18 +2,17 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-import CustomCursor from '@/components/CustomCursor'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Heed Digital - Creative Agency | 3D Animation, Design & Development',
-  description: 'A multidisciplinary creative agency delivering standout 3D, design, and digital experiences. Specializing in 3D animation, video content, UI/UX design, and web development.',
+  description: 'We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.',
   keywords: '3D animation, video editing, UI/UX design, content writing, marketing strategy, web development, creative agency',
   authors: [{ name: 'Heed Digital' }],
   creator: 'Heed Digital',
   publisher: 'Heed Digital',
   robots: 'index, follow',
+  metadataBase: new URL('https://heeddigital.com'),
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://heeddigital.com',
     title: 'Heed Digital - Creative Agency',
-    description: 'A multidisciplinary creative agency delivering standout 3D, design, and digital experiences.',
+    description: 'We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.',
     siteName: 'Heed Digital',
     images: [
       {
@@ -38,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Heed Digital - Creative Agency',
-    description: 'A multidisciplinary creative agency delivering standout 3D, design, and digital experiences.',
+    description: 'We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.',
     images: ['/og-image.jpg'],
   },
 }
@@ -46,10 +45,7 @@ export const metadata: Metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#FF6B35',
 }
-
-
 
 export default function RootLayout({
   children,
@@ -59,9 +55,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CustomCursor />
         {children}
-        
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -70,7 +65,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Heed Digital",
-              "description": "A multidisciplinary creative agency delivering standout 3D, design, and digital experiences.",
+              "description": "We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.",
               "url": "https://heeddigital.com",
               "logo": "https://heeddigital.com/logo.png",
               "sameAs": [
@@ -82,7 +77,7 @@ export default function RootLayout({
                 "@type": "ContactPoint",
                 "telephone": "+1-555-0123",
                 "contactType": "customer service",
-                "email": "hello@heeddigital.com"
+                "email": "info@heeddigital.co"
               },
               "serviceType": [
                 "3D Animation & Modeling",

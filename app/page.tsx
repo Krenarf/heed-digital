@@ -3,6 +3,8 @@ import About from '@/components/About'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
 import WhyWorkWithUs from '@/components/WhyWorkWithUs'
+import ProofRow from '@/components/ProofRow'
+import CTABanner from '@/components/CTABanner'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
@@ -14,6 +16,8 @@ export default function Home() {
       <Services />
       <Portfolio />
       <WhyWorkWithUs />
+      <ProofRow />
+      <CTABanner />
       <Contact />
       <Footer />
     </main>

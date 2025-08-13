@@ -8,26 +8,29 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+        brand: {
+          green: '#19C37D',
+          blue: '#7CD3FF',
         },
-        accent: '#FF6B35',
-        dark: '#0a0a0a',
-        'dark-gray': '#1a1a1a',
-        'light-gray': '#f8f9fa',
+        background: '#0B0C0E',
+        text: '#F3F5F7',
+        'text-muted': '#9CA3AF',
+        'surface': '#1F2937',
+        'surface-hover': '#374151',
+        accent: '#19C37D',
+        primary: {
+          400: '#19C37D',
+          500: '#16A362',
+          600: '#138A4E',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Poppins', 'system-ui', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'brand-gradient': 'linear-gradient(45deg, #19C37D 0%, #7CD3FF 100%)',
+        'brand-gradient-subtle': 'linear-gradient(45deg, rgba(25, 195, 125, 0.1) 0%, rgba(124, 211, 255, 0.1) 100%)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',
@@ -55,6 +58,9 @@ module.exports = {
       },
       backdropBlur: {
         xs: '2px',
+      },
+      minHeight: {
+        'dvh': '100dvh',
       },
     },
   },

@@ -28,8 +28,12 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    service: '',
-    message: ''
+    company: '',
+    budget: '',
+    timeline: '',
+    needs: [] as string[],
+    brief: '',
+    links: ''
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,7 +41,16 @@ export default function Contact() {
     // Formspree integration would go here
     console.log('Form submitted:', formData)
     // Reset form
-    setFormData({ name: '', email: '', service: '', message: '' })
+    setFormData({ 
+      name: '', 
+      email: '', 
+      company: '', 
+      budget: '', 
+      timeline: '', 
+      needs: [], 
+      brief: '', 
+      links: '' 
+    })
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -47,12 +60,21 @@ export default function Contact() {
     })
   }
 
+  const handleNeedsChange = (need: string) => {
+    setFormData(prev => ({
+      ...prev,
+      needs: prev.needs.includes(need)
+        ? prev.needs.filter(n => n !== need)
+        : [...prev.needs, need]
+    }))
+  }
+
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index)
   }
 
   return (
-    <section id="contact" className="section-padding bg-dark-gray">
+    <section id="contact" className="section-padding bg-surface">
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -65,8 +87,8 @@ export default function Contact() {
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Let's Build Something <span className="gradient-text">Great</span> Together
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to bring your vision to life? Get in touch and let's discuss how we can help 
+          <p className="text-xl text-text-muted max-w-3xl mx-auto">
+            Ready to bring your vision to life? Get in touch and let's discuss how we can help
             your business stand out with creative excellence.
           </p>
         </motion.div>
@@ -82,7 +104,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-text-muted mb-2">
                     Full Name *
                   </label>
                   <input
@@ -92,13 +114,13 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-dark border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-accent focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg text-text placeholder-text-muted focus:border-brand-green focus:outline-none transition-colors"
                     placeholder="Your full name"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-text-muted mb-2">
                     Email Address *
                   </label>
                   <input
@@ -108,56 +130,124 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-dark border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-accent focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg text-text placeholder-text-muted focus:border-brand-green focus:outline-none transition-colors"
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-2">
-                  Service Interest *
+                <label htmlFor="company" className="block text-sm font-medium text-text-muted mb-2">
+                  Company (Optional)
                 </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
                   onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-dark border border-white/20 rounded-lg text-white focus:border-accent focus:outline-none transition-colors"
-                >
-                  <option value="">Select a service</option>
-                  <option value="3d-animation">3D Animation & Modeling</option>
-                  <option value="video-production">Video Content Creation</option>
-                  <option value="ui-ux">UI/UX Design</option>
-                  <option value="content-writing">Content Writing</option>
-                  <option value="marketing">Marketing Strategy</option>
-                  <option value="web-development">Web Development</option>
-                  <option value="multiple">Multiple Services</option>
-                  <option value="other">Other</option>
-                </select>
+                  className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg text-text placeholder-text-muted focus:border-brand-green focus:outline-none transition-colors"
+                  placeholder="Your company name"
+                />
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="budget" className="block text-sm font-medium text-text-muted mb-2">
+                    Budget Range *
+                  </label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg text-text focus:border-brand-green focus:outline-none transition-colors"
+                  >
+                    <option value="">Select budget range</option>
+                    <option value="5k-10k">$5K - $10K</option>
+                    <option value="10k-25k">$10K - $25K</option>
+                    <option value="25k-50k">$25K - $50K</option>
+                    <option value="50k+">$50K+</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="timeline" className="block text-sm font-medium text-text-muted mb-2">
+                    Timeline *
+                  </label>
+                  <select
+                    id="timeline"
+                    name="timeline"
+                    value={formData.timeline}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg text-text focus:border-brand-green focus:outline-none transition-colors"
+                  >
+                    <option value="">Select timeline</option>
+                    <option value="1-2-weeks">1-2 weeks</option>
+                    <option value="1-month">1 month</option>
+                    <option value="2-3-months">2-3 months</option>
+                    <option value="3-6-months">3-6 months</option>
+                    <option value="6-months+">6+ months</option>
+                  </select>
+                </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Project Details *
+                <label className="block text-sm font-medium text-text-muted mb-2">
+                  Services Needed *
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  {['3D Animation', 'Video Editing', 'UI/UX Design', 'Content Writing', 'Marketing Strategy', 'Web Development'].map((need) => (
+                    <label key={need} className="flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={formData.needs.includes(need)}
+                        onChange={() => handleNeedsChange(need)}
+                        className="rounded border-white/20 text-brand-green focus:ring-brand-green focus:ring-offset-background"
+                      />
+                      <span className="text-sm text-text">{need}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="brief" className="block text-sm font-medium text-text-muted mb-2">
+                  Project Brief *
                 </label>
                 <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
+                  id="brief"
+                  name="brief"
+                  value={formData.brief}
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-dark border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-accent focus:outline-none transition-colors resize-none"
-                  placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
+                  className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg text-text placeholder-text-muted focus:border-brand-green focus:outline-none transition-colors resize-none"
+                  placeholder="Tell us about your project, goals, and requirements..."
+                />
+              </div>
+
+              <div>
+                <label htmlFor="links" className="block text-sm font-medium text-text-muted mb-2">
+                  Reference Links (Optional)
+                </label>
+                <input
+                  type="url"
+                  id="links"
+                  name="links"
+                  value={formData.links}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-background border border-white/20 rounded-lg text-text placeholder-text-muted focus:border-brand-green focus:outline-none transition-colors"
+                  placeholder="https://example.com"
                 />
               </div>
 
               <button
                 type="submit"
-                className="btn-primary w-full group"
-                data-cursor="hover"
+                className="btn-primary w-full group tap-target"
               >
                 <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                 Send Message
@@ -175,49 +265,49 @@ export default function Contact() {
           >
             <div>
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
-              <p className="text-gray-300 mb-8 leading-relaxed">
-                Have a project in mind? Let's discuss how we can help bring your vision to life. 
+              <p className="text-text-muted mb-8 leading-relaxed">
+                Have a project in mind? Let's discuss how we can help bring your vision to life.
                 We're here to answer any questions and explore creative possibilities together.
               </p>
             </div>
 
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-accent" />
+                <div className="w-12 h-12 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-6 h-6 text-brand-green" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Email</h4>
-                  <p className="text-gray-300">hello@heeddigital.com</p>
+                  <h4 className="font-semibold text-text mb-1">Email</h4>
+                  <p className="text-text-muted">info@heeddigital.co</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary-400" />
+                <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-6 h-6 text-brand-blue" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Phone</h4>
-                  <p className="text-gray-300">+1 (555) 123-4567</p>
+                  <h4 className="font-semibold text-text mb-1">Phone</h4>
+                  <p className="text-text-muted">+1 (555) 123-4567</p>
                 </div>
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-green-400" />
+                <div className="w-12 h-12 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-brand-green" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white mb-1">Location</h4>
-                  <p className="text-gray-300">Global Team • Remote First</p>
+                  <h4 className="font-semibold text-text mb-1">Location</h4>
+                  <p className="text-text-muted">Global Team • Remote First</p>
                 </div>
               </div>
             </div>
 
             {/* Response time */}
             <div className="glass-effect rounded-xl p-6">
-              <h4 className="font-semibold text-white mb-2">Response Time</h4>
-              <p className="text-gray-300 text-sm">
-                We typically respond within 24 hours during business days. 
+              <h4 className="font-semibold text-text mb-2">Response Time</h4>
+              <p className="text-text-muted text-sm">
+                We typically respond within 24 hours during business days.
                 For urgent inquiries, please mention it in your message.
               </p>
             </div>
@@ -236,7 +326,7 @@ export default function Contact() {
             <h3 className="text-3xl font-bold mb-4">
               Frequently Asked <span className="gradient-text">Questions</span>
             </h3>
-            <p className="text-gray-300 max-w-2xl mx-auto">
+            <p className="text-text-muted max-w-2xl mx-auto">
               Got questions? We've got answers. Here are some common inquiries about working with Heed Digital.
             </p>
           </div>
@@ -253,16 +343,16 @@ export default function Contact() {
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors"
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/5 transition-colors tap-target"
                 >
-                  <span className="font-medium text-white">{faq.question}</span>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                  <span className="font-medium text-text">{faq.question}</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-text-muted transition-transform duration-300 ${
                       activeFaq === index ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
-                
+
                 <motion.div
                   initial={false}
                   animate={{
@@ -272,7 +362,7 @@ export default function Contact() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-4 text-gray-300 leading-relaxed">
+                  <div className="px-6 pb-4 text-text-muted leading-relaxed">
                     {faq.answer}
                   </div>
                 </motion.div>
