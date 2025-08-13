@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "background": "/hero.jpg",
+    "video": "/videos/hero-bg.mp4"
+  },
+  "about": {
+    "image": "/about.jpg"
+  },
+  "work": {
+    "work-1": "/work/work-1.jpg",
+    "work-2": "/work/work-2.jpg",
+    "work-3": "/work/work-3.jpg",
+    "work-4": "/work/work-4.jpg",
+    "work-5": "/work/work-5.jpg",
+    "work-6": "/work/work-6.jpg",
+    "work-7": "/work/work-7.jpg",
+    "work-8": "/work/work-8.jpg"
+  },
+  "videos": {
+    "reel-1": "/videos/reel-1.mp4",
+    "reel-2": "/videos/reel-2.mp4",
+    "reel-3": "/videos/reel-3.mp4",
+    "reel-4": "/videos/reel-4.mp4"
+  },
+  "services": {
+    "3d-animation": "/icons/3d-animation.svg",
+    "video-editing": "/icons/video-editing.svg",
+    "ui-ux": "/icons/ui-ux.svg",
+    "content-writing": "/icons/content-writing.svg",
+    "marketing": "/icons/marketing.svg",
+    "coding": "/icons/coding.svg"
+  }
+}
