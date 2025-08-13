@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
+import Header from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
+const plusJakarta = Plus_Jakarta_Sans({ 
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta'
+})
 
 export const metadata: Metadata = {
   title: 'Heed Digital - Creative Agency | 3D Animation, Design & Development',
@@ -54,7 +59,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${plusJakarta.variable}`}>
+        <Header />
         {children}
 
         {/* JSON-LD Structured Data */}

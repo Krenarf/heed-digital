@@ -11,6 +11,7 @@ import {
   ArrowUp
 } from 'lucide-react'
 import Link from 'next/link'
+import Container from './Container'
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -18,15 +19,15 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-background border-t border-white/10">
-      <div className="container-custom py-16">
+    <footer className="bg-bg border-t border-gray-700">
+      <Container className="py-16">
         <div className="grid lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold mb-4">
               <span className="gradient-text">Heed Digital</span>
             </h3>
-            <p className="text-text-muted mb-6 max-w-md leading-relaxed">
+            <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
               We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.
             </p>
 
@@ -36,7 +37,7 @@ export default function Footer() {
                 href="https://twitter.com/heeddigital"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-surface rounded-lg flex items-center justify-center text-text-muted hover:text-brand-green hover:bg-brand-green/10 transition-all duration-300 tap-target"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-brandA hover:bg-brandA/10 transition-all duration-300"
               >
                 <Twitter className="w-5 h-5" />
               </a>
@@ -44,7 +45,7 @@ export default function Footer() {
                 href="https://linkedin.com/company/heeddigital"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-surface rounded-lg flex items-center justify-center text-text-muted hover:text-brand-green hover:bg-brand-green/10 transition-all duration-300 tap-target"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-brandA hover:bg-brandA/10 transition-all duration-300"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
@@ -52,7 +53,7 @@ export default function Footer() {
                 href="https://instagram.com/heeddigital"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-surface rounded-lg flex items-center justify-center text-text-muted hover:text-brand-green hover:bg-brand-green/10 transition-all duration-300 tap-target"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-brandA hover:bg-brandA/10 transition-all duration-300"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -60,7 +61,7 @@ export default function Footer() {
                 href="https://github.com/heeddigital"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-surface rounded-lg flex items-center justify-center text-text-muted hover:text-brand-green hover:bg-brand-green/10 transition-all duration-300 tap-target"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-brandA hover:bg-brandA/10 transition-all duration-300"
               >
                 <Github className="w-5 h-5" />
               </a>
@@ -69,12 +70,12 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold text-text mb-4">Services</h4>
+            <h4 className="text-lg font-semibold text-fg mb-4">Services</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/services#3d-animation"
-                  className="text-text-muted hover:text-brand-green transition-colors duration-300"
+                  className="text-gray-400 hover:text-brandA transition-colors duration-300"
                 >
                   3D Animation & Modeling
                 </Link>
@@ -82,7 +83,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services#video-editing"
-                  className="text-text-muted hover:text-brand-green transition-colors duration-300"
+                  className="text-gray-400 hover:text-brandA transition-colors duration-300"
                 >
                   Video Content Creation
                 </Link>
@@ -90,7 +91,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services#ui-ux"
-                  className="text-text-muted hover:text-brand-green transition-colors duration-300"
+                  className="text-gray-400 hover:text-brandA transition-colors duration-300"
                 >
                   UI/UX Design
                 </Link>
@@ -98,7 +99,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services#coding"
-                  className="text-text-muted hover:text-brand-green transition-colors duration-300"
+                  className="text-gray-400 hover:text-brandA transition-colors duration-300"
                 >
                   Web Development
                 </Link>
@@ -108,38 +109,30 @@ export default function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="text-lg font-semibold text-text mb-4">Company</h4>
+            <h4 className="text-lg font-semibold text-fg mb-4">Company</h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/about"
-                  className="text-text-muted hover:text-brand-green transition-colors duration-300"
+                  className="text-gray-400 hover:text-brandA transition-colors duration-300"
                 >
                   About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/work"
-                  className="text-text-muted hover:text-brand-green transition-colors duration-300"
-                >
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/contact"
-                  className="text-text-muted hover:text-brand-green transition-colors duration-300"
+                  className="text-gray-400 hover:text-brandA transition-colors duration-300"
                 >
                   Contact
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/careers"
-                  className="text-text-muted hover:text-brand-green transition-colors duration-300"
+                  href="/work"
+                  className="text-gray-400 hover:text-brandA transition-colors duration-300"
                 >
-                  Careers
+                  Portfolio
                 </Link>
               </li>
             </ul>
@@ -147,20 +140,20 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-text-muted text-sm">
+        <div className="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <div className="text-gray-400 text-sm">
             © 2024 Heed Digital. All rights reserved.
           </div>
 
           {/* Back to Top */}
           <button
             onClick={scrollToTop}
-            className="w-10 h-10 bg-surface rounded-lg flex items-center justify-center text-text-muted hover:text-brand-green hover:bg-brand-green/10 transition-all duration-300 tap-target"
+            className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-brandA hover:bg-brandA/10 transition-all duration-300"
           >
             <ArrowUp className="w-5 h-5" />
           </button>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }
