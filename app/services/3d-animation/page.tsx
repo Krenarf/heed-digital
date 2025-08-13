@@ -1,18 +1,10 @@
-import { Metadata } from 'next'
+'use client'
+
 import { motion } from 'framer-motion'
 import { ArrowLeft, Check, Clock, DollarSign } from 'lucide-react'
 import Link from 'next/link'
 import Container from '@/components/Container'
 import Button from '@/components/Button'
-
-export const metadata: Metadata = {
-  title: '3D Animation & Modeling - Heed Digital',
-  description: 'Character, product, and brand 3D that looks expensive and feels alive.',
-  openGraph: {
-    title: '3D Animation & Modeling - Heed Digital',
-    description: 'Character, product, and brand 3D that looks expensive and feels alive.',
-  },
-}
 
 const whatYouGet = [
   'Styleframes',

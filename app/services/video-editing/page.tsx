@@ -1,18 +1,10 @@
-import { Metadata } from 'next'
+'use client'
+
 import { motion } from 'framer-motion'
 import { ArrowLeft, Check, Clock, Video } from 'lucide-react'
 import Link from 'next/link'
 import Container from '@/components/Container'
 import Button from '@/components/Button'
-
-export const metadata: Metadata = {
-  title: 'Video Editing - Heed Digital',
-  description: 'Hook-first edits that keep people watching.',
-  openGraph: {
-    title: 'Video Editing - Heed Digital',
-    description: 'Hook-first edits that keep people watching.',
-  },
-}
 
 const whatYouGet = [
   'Shorts',
