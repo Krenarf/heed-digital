@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import Button from './Button'
@@ -15,6 +15,18 @@ const navigation = [
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) { 
+      document.body.style.overflow = 'hidden'; 
+    } else { 
+      document.body.style.overflow = ''; 
+    }
+    return () => { 
+      document.body.style.overflow = ''; 
+    };
+  }, [mobileMenuOpen]);
 
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
@@ -54,41 +66,47 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md">
-          <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between p-4 border-b border-white/10">
-              <Link href="/" className="text-xl font-bold text-fg">
-                HEED DIGITAL
-              </Link>
-              <button
-                type="button"
-                className="p-2 text-fg hover:text-brandA transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <X className="h-6 w-6" />
-              </button>
-            </div>
-            
-            <nav className="flex-1 px-4 py-8 space-y-6">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block text-2xl font-medium text-fg hover:text-brandA transition-colors duration-200"
+        <>
+          {/* Backdrop */}
+          <div className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm md:hidden" onClick={() => setMobileMenuOpen(false)} />
+          
+          {/* Menu panel */}
+          <div className="md:hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md">
+            <div className="flex flex-col h-full">
+              <div className="flex items-center justify-between p-4 border-b border-white/10">
+                <Link href="/" className="text-xl font-bold text-fg">
+                  HEED DIGITAL
+                </Link>
+                <button
+                  type="button"
+                  className="p-2 text-fg hover:text-brandA transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
-            
-            <div className="p-4 border-t border-white/10">
-              <Button variant="primary" href="/contact" className="w-full">
-                Start a Project
-              </Button>
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+              
+              <nav className="flex-1 px-4 py-8 space-y-6">
+                {navigation.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block text-2xl font-medium text-fg hover:text-brandA transition-colors duration-200"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </nav>
+              
+              <div className="p-4 border-t border-white/10">
+                <Button variant="primary" href="/contact" className="w-full">
+                  Start a Project
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   )
