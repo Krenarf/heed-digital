@@ -17,7 +17,7 @@ const services = [
     icon: Box,
     title: '3D Animation & Modeling',
     description: 'Bring your ideas to life with stunning 3D animations, product visualizations, and architectural renders.',
-    color: 'from-brand-green to-brand-blue',
+    color: 'from-blue-500 to-purple-500',
     delay: 0.1,
     slug: '3d-animation'
   },
@@ -25,7 +25,7 @@ const services = [
     icon: Video,
     title: 'Video Content Creation',
     description: 'Professional video production, editing, and post-production for commercials, social media, and more.',
-    color: 'from-brand-blue to-brand-green',
+    color: 'from-purple-500 to-pink-500',
     delay: 0.2,
     slug: 'video-editing'
   },
@@ -33,7 +33,7 @@ const services = [
     icon: Palette,
     title: 'UI/UX Design',
     description: 'User-centered design solutions that create intuitive, engaging digital experiences across all platforms.',
-    color: 'from-brand-green to-brand-blue',
+    color: 'from-green-500 to-blue-500',
     delay: 0.3,
     slug: 'ui-ux'
   },
@@ -41,7 +41,7 @@ const services = [
     icon: PenTool,
     title: 'Content Writing',
     description: 'Compelling copy that connects with your audience and drives action across all marketing channels.',
-    color: 'from-brand-blue to-brand-green',
+    color: 'from-orange-500 to-red-500',
     delay: 0.4,
     slug: 'content-writing'
   },
@@ -49,7 +49,7 @@ const services = [
     icon: TrendingUp,
     title: 'Marketing Strategy',
     description: 'Data-driven marketing strategies that grow your brand and deliver measurable business results.',
-    color: 'from-brand-green to-brand-blue',
+    color: 'from-cyan-500 to-blue-500',
     delay: 0.5,
     slug: 'marketing'
   },
@@ -57,7 +57,7 @@ const services = [
     icon: Code,
     title: 'Web Development',
     description: 'Custom websites and web applications built with modern technologies and best practices.',
-    color: 'from-brand-blue to-brand-green',
+    color: 'from-indigo-500 to-purple-500',
     delay: 0.6,
     slug: 'coding'
   }
@@ -65,7 +65,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="section-padding bg-background">
+    <section id="services" className="section-padding bg-gradient-to-br from-slate-50 to-gray-100">
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -73,19 +73,19 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Our <span className="gradient-text">Services</span>
+          <h2 className="text-5xl lg:text-6xl font-black mb-8 text-slate-900">
+            Our <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">Services</span>
           </h2>
-          <p className="text-xl text-text-muted max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
             We offer a complete range of creative and digital services to help your business stand out
             and succeed in today's competitive landscape.
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -96,59 +96,72 @@ export default function Services() {
               className="group"
             >
               <Link href={`/services/${service.slug}`} className="block">
-                <div className="relative p-8 bg-surface rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-surface-hover h-full">
+                <div className="relative p-8 bg-white rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 hover:bg-white/80 hover:scale-105 h-full shadow-lg hover:shadow-2xl">
                   {/* Background gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`} />
 
                   {/* Icon */}
-                  <div className="relative z-10 mb-6">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className="w-8 h-8 text-white" />
+                  <div className="relative z-10 mb-8">
+                    <div className={`w-20 h-20 bg-gradient-to-br ${service.color} rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                      <service.icon className="w-10 h-10 text-white" />
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="relative z-10">
-                    <h3 className="text-xl font-bold text-text mb-4 group-hover:text-brand-green transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-purple-600 group-hover:to-cyan-600 group-hover:bg-clip-text transition-all duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-text-muted leading-relaxed mb-6">
+                    <p className="text-slate-600 leading-relaxed mb-8 text-base">
                       {service.description}
                     </p>
 
                     {/* Learn more button */}
-                    <div className="flex items-center text-brand-green group-hover:text-white transition-colors duration-300">
-                      <span className="text-sm font-medium">Learn More</span>
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    <div className="flex items-center text-blue-600 group-hover:text-purple-600 transition-colors duration-300 font-semibold">
+                      <span className="text-sm">Learn More</span>
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                     </div>
                   </div>
 
-                  {/* Hover effect border */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 rounded-2xl transition-opacity duration-300`} />
+                  {/* Enhanced hover effect border */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-10 rounded-3xl transition-opacity duration-500`} />
                 </div>
               </Link>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA Section */}
+        {/* Enhanced CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center"
         >
-          <div className="glass-effect rounded-2xl p-12 max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold mb-4">
-              Need a <span className="gradient-text">Custom Solution</span>?
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-16 max-w-5xl mx-auto text-white shadow-2xl">
+            <h3 className="text-4xl font-black mb-6">
+              Need a <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">Custom Solution</span>?
             </h3>
-            <p className="text-lg text-text-muted mb-8">
-              Let's discuss how we can create something unique for your business.
+            <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+              Let's discuss how we can create something unique for your business. Our hybrid approach combines 3D, UI/UX, and marketing strategy to give you a competitive edge.
             </p>
-            <Link href="/contact" className="btn-primary tap-target">
-              Get Started
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link 
+                href="/contact" 
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white text-blue-600 font-bold rounded-2xl hover:bg-gray-100 transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                Get Started
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link 
+                href="/work" 
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-2xl border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105"
+              >
+                View Our Work
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>
