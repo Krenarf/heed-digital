@@ -34,3 +34,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+".cursor/"  ".gitconfig"  ".lesshst"  ".matplotlib/"  ".thumbnails/"  "AppData/"  "Desktop/"  "Documents/"  "Downloads/"  "package-lock.json" 
