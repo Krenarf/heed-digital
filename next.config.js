@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', 'picsum.photos'],
     formats: ['image/webp', 'image/avif'],
   },
   compress: true,

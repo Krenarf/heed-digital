@@ -29,11 +29,11 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-white/10">
       <Container>
         <div className="flex items-center justify-between h-16 sm:h-18">
           {/* Logo */}
-          <Link href="/" className="text-xl font-bold text-fg">
+          <Link href="/" className="text-xl font-bold text-white">
             HEED DIGITAL
           </Link>
 
@@ -43,7 +43,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-fg hover:text-brandA transition-colors duration-200"
+                className="text-white hover:text-blue-400 transition-colors duration-200"
               >
                 {item.name}
               </Link>
@@ -56,7 +56,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 text-fg hover:text-brandA transition-colors"
+            className="md:hidden p-2 text-white hover:text-blue-400 transition-colors"
             onClick={() => setMobileMenuOpen(true)}
           >
             <Menu className="h-6 w-6" />
@@ -64,50 +64,50 @@ export default function Header() {
         </div>
       </Container>
 
-      {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <>
-          {/* Backdrop */}
-          <div className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm md:hidden" onClick={() => setMobileMenuOpen(false)} />
-          
-          {/* Menu panel */}
-          <div className="md:hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md">
-            <div className="flex flex-col h-full">
-              <div className="flex items-center justify-between p-4 border-b border-white/10">
-                <Link href="/" className="text-xl font-bold text-fg">
-                  HEED DIGITAL
-                </Link>
-                <button
-                  type="button"
-                  className="p-2 text-fg hover:text-brandA transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-              
-              <nav className="flex-1 px-4 py-8 space-y-6">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="block text-2xl font-medium text-fg hover:text-brandA transition-colors duration-200"
+                           {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <div className="md:hidden fixed inset-0 z-40 bg-black" onClick={() => setMobileMenuOpen(false)} />
+            
+            {/* Menu panel */}
+            <div className="md:hidden fixed inset-0 z-50 bg-black">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between p-6 border-b border-white/10">
+                  <Link href="/" className="text-2xl font-bold text-white">
+                    HEED DIGITAL
+                  </Link>
+                  <button
+                    type="button"
+                    className="p-2 text-white hover:text-blue-400 transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
-              
-              <div className="p-4 border-t border-white/10">
-                <Button variant="primary" href="/contact" className="w-full">
-                  Start a Project
-                </Button>
+                    <X className="h-6 w-6" />
+                  </button>
+                </div>
+                
+                <nav className="flex-1 px-6 py-12 space-y-8">
+                  {navigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block text-3xl font-semibold text-white hover:text-blue-400 transition-colors duration-200"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </nav>
+                
+                <div className="p-6 border-t border-white/10">
+                  <Button variant="primary" href="/contact" className="w-full text-lg py-4">
+                    Start a Project
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
     </header>
   )
 }

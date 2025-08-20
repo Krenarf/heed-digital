@@ -1,48 +1,37 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { ExternalLink, Play } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { projects } from '@/content/work'
 
 export default function WorkOverview() {
   return (
-    <main className="min-h-dvh bg-background">
+    <main className="min-h-screen bg-gray-900">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 safe-area-padding">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Our <span className="gradient-text">Work</span>
+      <section className="pt-32 pb-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white">
+              Our <span className="text-blue-400">Work</span>
             </h1>
-            <p className="text-xl text-text-muted max-w-3xl mx-auto">
-              Explore our portfolio of creative projects that demonstrate our expertise across 
+            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+              Explore our portfolio of 23+ successful projects that demonstrate our expertise across 
               3D animation, video production, UI/UX design, and web development.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Portfolio Grid */}
-      <section className="pb-16 safe-area-padding">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="pb-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {projects.map((project, index) => (
-              <motion.div
-                key={project.slug}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group"
-              >
+                          <div
+              key={project.slug}
+              className="group"
+            >
                 <Link href={`/work/${project.slug}`} className="block">
-                  <div className="relative overflow-hidden rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
+                  <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300">
                     {/* Project Image */}
                     <div className="aspect-[4/3] relative overflow-hidden">
                       <Image
@@ -78,17 +67,17 @@ export default function WorkOverview() {
                     </div>
 
                     {/* Project Info */}
-                    <div className="p-6 bg-gray-900">
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
+                    <div className="p-4 sm:p-6 bg-gray-900">
+                      <h3 className="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
                         {project.title}
                       </h3>
-                      <p className="text-gray-300 mb-4 leading-relaxed">
+                      <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4 leading-relaxed">
                         {project.summary}
                       </p>
                       
                       {/* Category */}
-                      <div className="flex items-center justify-between">
-                        <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs rounded-full">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                        <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs rounded-full w-fit">
                           {project.category}
                         </span>
                         <span className="text-gray-400 text-xs">
@@ -98,33 +87,28 @@ export default function WorkOverview() {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 safe-area-padding">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <div className="glass-effect rounded-2xl p-12 max-w-4xl mx-auto">
-              <h3 className="text-3xl font-bold mb-4">
-                Ready to Create Something <span className="gradient-text">Amazing</span>?
+      <section className="py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center">
+            <div className="bg-gray-800 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-12 max-w-4xl mx-auto border border-gray-700">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">
+                Ready to Create Something <span className="text-blue-400">Amazing</span>?
               </h3>
-              <p className="text-lg text-text-muted mb-8">
+              <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8">
                 Let's discuss your project and show you how we can bring your vision to life.
               </p>
-              <Link href="/contact" className="btn-primary tap-target">
+              <Link href="/contact" className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-blue-500 text-white font-bold rounded-xl sm:rounded-2xl hover:bg-blue-600 transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-500/25">
                 Start Your Project
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
