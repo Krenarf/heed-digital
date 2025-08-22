@@ -35,16 +35,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Large video files (too big for GitHub - over 50MB)
-public/work/synermuscle-3d-identity/shot-4.mov          # 87.65MB
-public/work/mr-brainboost/hero.mp4                        # 131.10MB
-public/work/synermuscle-3d-identity/hero.mp4             # 17.39MB (under 50MB - can include)
-public/work/synermuscle-3d-identity/shot-2.mp4           # 35.71MB (under 50MB - can include)
-public/work/mr-brainboost/shot-03.mp4                    # 29.23MB (under 50MB - can include)
-
-# Only exclude the truly large files
-public/work/synermuscle-3d-identity/shot-4.mov
-public/work/mr-brainboost/hero.mp4
+# Note: All video files are now included for Vercel deployment
+# GitHub may have size limits, but Vercel can handle large files
 
 # IDE and system files
 ".cursor/"  ".gitconfig"  ".lesshst"  ".matplotlib/"  ".thumbnails/"  "AppData/"  "Desktop/"  "Documents/"  "Downloads/"  "package-lock.json" 
