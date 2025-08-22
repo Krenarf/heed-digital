@@ -81,7 +81,6 @@ export default function RootLayout({
               ],
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+1-555-0123",
                 "contactType": "customer service",
                 "email": "info@heeddigital.co"
               },

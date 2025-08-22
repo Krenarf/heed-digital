@@ -10,6 +10,7 @@ export interface WorkProject {
   summary: string
   tags: string[]
   thumbnail: string
+  heroVideo?: string
   date: string
   role: string
   results: string[]
@@ -38,6 +39,7 @@ export async function getWorkProjects(): Promise<WorkProject[]> {
         summary: data.summary,
         tags: data.tags || [],
         thumbnail: data.thumbnail,
+        heroVideo: data.heroVideo,
         date: data.date,
         role: data.role,
         results: data.results || [],
@@ -61,6 +63,7 @@ export async function getWorkProject(slug: string): Promise<WorkProject | null> 
       summary: data.summary,
       tags: data.tags || [],
       thumbnail: data.thumbnail,
+      heroVideo: data.heroVideo,
       date: data.date,
       role: data.role,
       results: data.results || [],

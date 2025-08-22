@@ -9,42 +9,48 @@ const services = [
     title: '3D Animation & Modeling',
     description: 'Signature 3D that stops the scroll.',
     bullets: ['Character/product 3D', 'Styleframes', '10–30s loops', 'Promos', 'Exports for social'],
-    slug: '3d-animation'
+    slug: '3d-animation',
+    color: 'from-blue-500 to-green-500'
   },
   {
     icon: Video,
     title: 'Video Editing',
     description: 'Hooks, pacing, and polish.',
     bullets: ['Shorts', 'Kinetic type', 'Captions/SRT', '3–5 variants', 'Thumbnail'],
-    slug: 'video-editing'
+    slug: 'video-editing',
+    color: 'from-purple-500 to-pink-500'
   },
   {
     icon: Palette,
     title: 'UI/UX Design',
     description: 'Clean designs that convert.',
     bullets: ['Landing pages', 'Onboarding', 'Design tokens', 'Component library'],
-    slug: 'ui-ux'
+    slug: 'ui-ux',
+    color: 'from-green-500 to-blue-500'
   },
   {
     icon: PenTool,
     title: 'Content Writing',
     description: 'Words that carry the video.',
     bullets: ['Hooks', 'Scripts', 'Captions', 'Case blurbs', 'Voice & tone'],
-    slug: 'content-writing'
+    slug: 'content-writing',
+    color: 'from-orange-500 to-red-500'
   },
   {
     icon: TrendingUp,
     title: 'Marketing Strategy',
     description: 'Clarity on what to make and why.',
     bullets: ['Positioning', 'Content calendar', 'KPI dashboard', 'Creator collabs'],
-    slug: 'marketing-strategy'
+    slug: 'marketing-strategy',
+    color: 'from-cyan-500 to-blue-500'
   },
   {
     icon: Code,
     title: 'Code (Web Dev)',
     description: 'Fast sites, real analytics, A/B tests.',
     bullets: ['Next.js builds', 'CMS wiring', 'Analytics', 'Experiments'],
-    slug: 'code'
+    slug: 'code',
+    color: 'from-indigo-500 to-purple-500'
   }
 ]
 
@@ -79,8 +85,8 @@ export default function ServicesPreview() {
             >
               <div className="bg-bg rounded-2xl border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:bg-gray-700/20 p-8 h-full">
                 {/* Icon */}
-                <div className="w-16 h-16 bg-brand rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="w-8 h-8 text-black" />
+                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <service.icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Content */}

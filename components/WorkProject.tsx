@@ -85,15 +85,27 @@ export default function WorkProject({ project, relatedProjects }: WorkProjectPro
               ))}
             </div>
 
-            {/* Hero image */}
+            {/* Hero image/video */}
             <div className="relative aspect-video rounded-2xl overflow-hidden mb-12">
-              <Image
-                src={project.thumbnail}
-                alt={project.title}
-                fill
-                className="object-cover"
-                priority
-              />
+              {project.heroVideo ? (
+                <video
+                  src={project.heroVideo}
+                  poster={project.thumbnail}
+                  className="w-full h-full object-cover"
+                  controls
+                  muted
+                  loop
+                  playsInline
+                />
+              ) : (
+                <Image
+                  src={project.thumbnail}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              )}
             </div>
           </motion.div>
         </div>

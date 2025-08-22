@@ -34,4 +34,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large video files (too big for GitHub)
+*.mov
+*.mp4
+
+# Large media files
+public/work/*/hero.mp4
+public/work/*/shot-*.mp4
+public/work/*/shot-*.mov
+
+# IDE and system files
 ".cursor/"  ".gitconfig"  ".lesshst"  ".matplotlib/"  ".thumbnails/"  "AppData/"  "Desktop/"  "Documents/"  "Downloads/"  "package-lock.json" 

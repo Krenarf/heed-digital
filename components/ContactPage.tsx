@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, ChevronDown } from 'lucide-react'
+import { Mail, MapPin, Send, ChevronDown } from 'lucide-react'
 
 const faqs = [
   {
@@ -286,15 +286,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-brand-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-brand-blue" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-text mb-1">Phone</h4>
-                    <p className="text-text-muted">+1 (555) 123-4567</p>
-                  </div>
-                </div>
+
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-brand-green/20 rounded-lg flex items-center justify-center flex-shrink-0">

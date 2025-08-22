@@ -1,6 +1,25 @@
 
 import Link from 'next/link'
+import Image from 'next/image'
 import Container from './Container'
+
+// Utility function to try different image formats
+const getImageSrc = (basePath: string) => {
+  // Remove any existing extension
+  const pathWithoutExt = basePath.replace(/\.(png|jpg|jpeg|webp)$/i, '')
+  
+  // Try different formats in order of preference
+  const formats = ['.png', '.jpg', '.jpeg', '.webp']
+  
+  for (const format of formats) {
+    const fullPath = pathWithoutExt + format
+    // In a real implementation, you might want to check if the file exists
+    // For now, we'll just return the first format and let Next.js handle errors
+    return fullPath
+  }
+  
+  return basePath
+}
 
 const projects = [
   {
@@ -8,42 +27,42 @@ const projects = [
     title: 'SynerMuscle 3D Identity',
     summary: 'Character-led 3D identity and 12-video launch kit.',
     tags: ['3D', 'Editing', 'Strategy'],
-    image: '/work/work-1.jpg'
+    image: '/work/work-1.png'
   },
   {
-    slug: 'fitness-app-ui-redesign',
-    title: 'Fitness App UI Redesign',
-    summary: 'Complete mobile app redesign improving user engagement by 45%.',
+    slug: 'mr-brainboost-animated-series',
+    title: 'Mr. Brainboost, Realistic 3D Character Series',
+    summary: 'Realistic, humanized 3D character with cinematic shading and lighting, used for short-form educational storytelling across social platforms.',
+    tags: ['3D', 'Character Design', 'Animation'],
+    image: '/work/work-2.png'
+  },
+  {
+    slug: 'fitonomy-app',
+    title: 'Fitonomy App Design + Content',
+    summary: 'App UI/UX refresh, campaign visuals, and viral content that drove billions of views and supported millions of installs.',
     tags: ['UI/UX', 'Design', 'Strategy'],
-    image: '/work/work-2.jpg'
+    image: '/work/work-3.png'
   },
   {
-    slug: 'viral-marketing-video-series',
-    title: 'Viral Marketing Video Series',
-    summary: '12-part video campaign generating 2.8M organic views and 45K leads.',
-    tags: ['Video', 'Editing', 'Strategy'],
-    image: '/work/work-3.jpg'
+    slug: 'forcafit-app',
+    title: 'ForcaFit, Full App + Content System',
+    summary: 'End-to-end app design, character development, and content pipeline. 500M+ views in 8–9 months and 100k+ downloads.',
+    tags: ['UI/UX', 'App Design', 'Content'],
+    image: '/work/work-4.png'
   },
   {
-    slug: 'ecommerce-platform',
-    title: 'E-commerce Platform',
-    summary: 'Custom e-commerce solution with advanced analytics and optimization.',
-    tags: ['Code', 'UI/UX'],
-    image: '/work/work-4.jpg'
+    slug: 'chaton-ai-assistant',
+    title: 'ChatOn, AI Assistant UI/UX + Motion',
+    summary: 'Sleek assistant UI for web and mobile, with motion design to humanize interactions and onboarding.',
+    tags: ['UI/UX', 'Motion', 'Design System'],
+    image: '/work/work-5.png'
   },
   {
-    slug: 'architectural-render',
-    title: 'Architectural Render',
-    summary: 'High-end architectural visualization for luxury real estate project.',
-    tags: ['3D', 'Modeling'],
-    image: '/work/work-5.jpg'
-  },
-  {
-    slug: 'social-media-campaign',
-    title: 'Social Media Campaign',
-    summary: 'Multi-platform campaign driving 300% increase in brand engagement.',
-    tags: ['Strategy', 'Marketing'],
-    image: '/work/work-6.jpg'
+    slug: 'sekuence-music-vfx',
+    title: 'Sekuence, Music Video 3D + VFX',
+    summary: '3D inserts and VFX for music videos, elevating production with cinematic FX and seamless compositing.',
+    tags: ['3D', 'VFX', 'Music Video'],
+    image: '/work/work-6.png'
   }
 ]
 
@@ -68,15 +87,14 @@ export default function SelectedWork() {
             >
               <Link href={`/work/${project.slug}`} className="block">
                 <div className="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-gray-600 transition-all duration-300 hover:bg-gray-700/20">
-                  {/* Image placeholder */}
-                  <div className="aspect-video bg-gray-700 flex items-center justify-center relative overflow-hidden">
-                    <div className="text-center text-gray-400 z-10">
-                      <div className="w-16 h-16 bg-brand/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <div className="w-8 h-8 bg-brand rounded-full" />
-                      </div>
-                      <p className="text-sm font-medium">{project.title}</p>
-                      <p className="text-xs opacity-60">Replace with {project.image}</p>
-                    </div>
+                  {/* Image */}
+                  <div className="aspect-video bg-gray-700 relative overflow-hidden">
+                    <Image
+                      src={getImageSrc(project.image)}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
                     
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
