@@ -35,6 +35,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Large video files (GitHub file size limits)
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.webm
+
 # Note: All video files are now included for Vercel deployment
 # GitHub may have size limits, but Vercel can handle large files
 
