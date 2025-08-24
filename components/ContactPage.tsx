@@ -28,12 +28,8 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    budget: '',
-    timeline: '',
-    needs: [] as string[],
-    brief: '',
-    links: ''
+    projectType: '',
+    message: ''
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -44,12 +40,8 @@ export default function ContactPage() {
     setFormData({ 
       name: '', 
       email: '', 
-      company: '', 
-      budget: '', 
-      timeline: '', 
-      needs: [], 
-      brief: '', 
-      links: '' 
+      projectType: '', 
+      message: '' 
     })
   }
 
@@ -60,14 +52,7 @@ export default function ContactPage() {
     })
   }
 
-  const handleNeedsChange = (need: string) => {
-    setFormData(prev => ({
-      ...prev,
-      needs: prev.needs.includes(need)
-        ? prev.needs.filter(n => n !== need)
-        : [...prev.needs, need]
-    }))
-  }
+
 
   const toggleFaq = (index: number) => {
     setActiveFaq(activeFaq === index ? null : index)
@@ -85,11 +70,10 @@ export default function ContactPage() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Let's Build Something <span className="gradient-text">Great</span> Together
+              Let's grow your <span className="gradient-text">brand</span>
             </h1>
             <p className="text-xl text-text-muted max-w-3xl mx-auto">
-              Ready to bring your vision to life? Get in touch and let's discuss how we can help
-              your business stand out with creative excellence.
+              New York–based. Working worldwide.
             </p>
           </motion.div>
         </div>
@@ -109,7 +93,7 @@ export default function ContactPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-text-muted mb-2">
-                      Full Name *
+                      Name *
                     </label>
                     <input
                       type="text"
@@ -125,7 +109,7 @@ export default function ContactPage() {
 
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-text-muted mb-2">
-                      Email Address *
+                      Email *
                     </label>
                     <input
                       type="email"
@@ -141,91 +125,33 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-text-muted mb-2">
-                    Company (Optional)
+                  <label htmlFor="projectType" className="block text-sm font-medium text-text-muted mb-2">
+                    Project Type *
                   </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-surface border border-white/20 rounded-lg text-text placeholder-text-muted focus:border-brand-green focus:outline-none transition-colors"
-                    placeholder="Your company name"
-                  />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-medium text-text-muted mb-2">
-                      Budget Range *
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-surface border border-white/20 rounded-lg text-text focus:border-brand-green focus:outline-none transition-colors"
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="5k-10k">$5K - $10K</option>
-                      <option value="10k-25k">$10K - $25K</option>
-                      <option value="25k-50k">$25K - $50K</option>
-                      <option value="50k+">$50K+</option>
-                      <option value="custom">Custom</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="timeline" className="block text-sm font-medium text-text-muted mb-2">
-                      Timeline *
-                    </label>
-                    <select
-                      id="timeline"
-                      name="timeline"
-                      value={formData.timeline}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-surface border border-white/20 rounded-lg text-text focus:border-brand-green focus:outline-none transition-colors"
-                    >
-                      <option value="">Select timeline</option>
-                      <option value="1-2-weeks">1-2 weeks</option>
-                      <option value="1-month">1 month</option>
-                      <option value="2-3-months">2-3 months</option>
-                      <option value="3-6-months">3-6 months</option>
-                      <option value="6-months+">6+ months</option>
-                    </select>
-                  </div>
+                    required
+                    className="w-full px-4 py-3 bg-surface border border-white/20 rounded-lg text-text focus:border-brand-green focus:outline-none transition-colors"
+                  >
+                    <option value="">Select project type</option>
+                    <option value="3d">3D</option>
+                    <option value="social">Social Media</option>
+                    <option value="design">Design (UI/UX)</option>
+                    <option value="marketing">Marketing</option>
+                  </select>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-text-muted mb-2">
-                    Services Needed *
-                  </label>
-                  <div className="grid grid-cols-2 gap-3">
-                    {['3D Animation', 'Video Editing', 'UI/UX Design', 'Content Writing', 'Marketing Strategy', 'Web Development'].map((need) => (
-                      <label key={need} className="flex items-center space-x-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={formData.needs.includes(need)}
-                          onChange={() => handleNeedsChange(need)}
-                          className="rounded border-white/20 text-brand-green focus:ring-brand-green focus:ring-offset-background"
-                        />
-                        <span className="text-sm text-text">{need}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="brief" className="block text-sm font-medium text-text-muted mb-2">
-                    Project Brief *
+                  <label htmlFor="message" className="block text-sm font-medium text-text-muted mb-2">
+                    Message *
                   </label>
                   <textarea
-                    id="brief"
-                    name="brief"
-                    value={formData.brief}
+                    id="message"
+                    name="message"
+                    value={formData.message}
                     onChange={handleInputChange}
                     required
                     rows={6}
@@ -234,27 +160,12 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="links" className="block text-sm font-medium text-text-muted mb-2">
-                    Reference Links (Optional)
-                  </label>
-                  <input
-                    type="url"
-                    id="links"
-                    name="links"
-                    value={formData.links}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-surface border border-white/20 rounded-lg text-text placeholder-text-muted focus:border-brand-green focus:outline-none transition-colors"
-                    placeholder="https://example.com"
-                  />
-                </div>
-
                 <button
                   type="submit"
                   className="btn-primary w-full group tap-target"
                 >
                   <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                  Send Message
+                  Start Project
                 </button>
               </form>
             </motion.div>

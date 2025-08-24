@@ -57,10 +57,11 @@ export const projects: Project[] = [
       { label: "Views", value: "200M+ organic" }
     ],
     gallery: [
-      { src: "/work/synermuscle-3d-identity/shot-01.jpg", type: "image" as const },
+      { src: "/work/synermuscle-3d-identity/shot-01.png", type: "image" as const },
       { src: "/work/synermuscle-3d-identity/shot-2.mp4", type: "video" as const, alt: "SynerMuscle Shot 2" },
-      { src: "/work/synermuscle-3d-identity/shot-3.jpg", type: "image" as const },
-      { src: "/work/synermuscle-3d-identity/shot-4.mov", type: "video" as const, alt: "SynerMuscle Shot 4" }
+      { src: "/work/synermuscle-3d-identity/shot-3.png", type: "image" as const },
+      { src: "/work/synermuscle-3d-identity/shot-4.mov", type: "video" as const, alt: "SynerMuscle Shot 4" },
+      { src: "/work/synermuscle-3d-identity/shot-5.png", type: "image" as const }
     ]
   },
   {

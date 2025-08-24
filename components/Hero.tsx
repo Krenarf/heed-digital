@@ -40,7 +40,7 @@ export default function Hero() {
 
            {/* Subtitle */}
            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-12 sm:mb-16 max-w-4xl mx-auto leading-relaxed font-light px-4">
-             3D, editing, UI/UX, strategy, and code — one studio that transforms your vision into reality.
+             3D, editing, UI/UX, strategy, and code.
            </p>
 
                      {/* Enhanced Value Props */}

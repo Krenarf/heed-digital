@@ -10,9 +10,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Heed Digital - Creative Agency | 3D Animation, Design & Development',
-  description: 'We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.',
-  keywords: '3D animation, video editing, UI/UX design, content writing, marketing strategy, web development, creative agency',
+  title: 'Heed Digital - NYC Creative Studio | 3D, Social, Design & Marketing',
+  description: 'New York–based. Working worldwide. We make ideas hit harder.',
+  keywords: '3D animation, social media, UI/UX design, marketing strategy, NYC creative studio',
   authors: [{ name: 'Heed Digital' }],
   creator: 'Heed Digital',
   publisher: 'Heed Digital',
@@ -27,22 +27,22 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://heeddigital.com',
-    title: 'Heed Digital - Creative Agency',
-    description: 'We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.',
+    title: 'Heed Digital - NYC Creative Studio',
+    description: 'New York–based. Working worldwide. We make ideas hit harder.',
     siteName: 'Heed Digital',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Heed Digital - Creative Agency',
+        alt: 'Heed Digital - NYC Creative Studio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Heed Digital - Creative Agency',
-    description: 'We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.',
+    title: 'Heed Digital - NYC Creative Studio',
+    description: 'New York–based. Working worldwide. We make ideas hit harder.',
     images: ['/og-image.jpg'],
   },
 }
@@ -71,9 +71,14 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Heed Digital",
-              "description": "We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.",
+              "description": "New York–based. Working worldwide. We make ideas hit harder.",
               "url": "https://heeddigital.com",
               "logo": "https://heeddigital.com/logo.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "New York",
+                "addressCountry": "US"
+              },
               "sameAs": [
                 "https://twitter.com/heeddigital",
                 "https://linkedin.com/company/heeddigital",
@@ -86,11 +91,9 @@ export default function RootLayout({
               },
               "serviceType": [
                 "3D Animation & Modeling",
-                "Video Content Creation & Editing",
+                "Social Media Content & Strategy",
                 "UI/UX Design",
-                "Content Writing",
-                "Marketing Strategy",
-                "Web Development"
+                "Marketing Strategy"
               ]
             })
           }}

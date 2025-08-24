@@ -28,7 +28,7 @@ export default function Footer() {
               <span className="gradient-text">Heed Digital</span>
             </h3>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
-              We make ideas hit harder. 3D, editing, UI/UX, strategy, and code — one studio.
+              New York–based. Working worldwide.
             </p>
 
             {/* Social Links */}

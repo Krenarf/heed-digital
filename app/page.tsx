@@ -1,16 +1,22 @@
 import Hero from '@/components/Hero'
-import Services from '@/components/Services'
+import ImpactRow from '@/components/ImpactRow'
+import TrustedBy from '@/components/TrustedBy'
+import WorkCategories from '@/components/WorkCategories'
 import SelectedWork from '@/components/SelectedWork'
-import ProofRow from '@/components/ProofRow'
+import OurProcess from '@/components/OurProcess'
+import FinalCTA from '@/components/FinalCTA'
 import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
-      <Services />
+      <ImpactRow />
+      <TrustedBy />
+      <WorkCategories />
       <SelectedWork />
-      <ProofRow />
+      <OurProcess />
+      <FinalCTA />
       <Footer />
     </main>
   )
